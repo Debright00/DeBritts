@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeBrits | Premium Digital Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paypalDark: '#003087',
+                        paypalBlue: '#0070ba',
+                        paypalLight: '#f5f7fa',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-paypalLight text-slate-800 font-sans antialiased">
+
+    <!-- 1. NAVIGATION BAR WITH MOBILE HAMBURGER & DESKTOP HOVER DROPDOWN -->
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 backdrop-blur-md bg-white/90">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between relative">
+            <a href="#" class="text-2xl font-bold tracking-tight text-paypalDark">
+                DeBrits<span class="text-paypalBlue">.</span>
+            </a>
+
+            <div class="hidden md:flex space-x-8 font-medium text-sm items-center">
+                
+                <div class="relative py-4" id="services-dropdown-wrapper">
+                    <button type="button" id="services-menu-btn" class="text-slate-600 hover:text-paypalBlue transition flex items-center gap-1 focus:outline-none select-none">
+                        Services
+                        <svg id="dropdown-arrow" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    
+                    <div id="services-dropdown-menu" class="absolute top-full left-0 w-64 bg-white border border-slate-200 rounded-xl shadow-xl hidden p-2 z-50">
+                        <a href="services.html#data" class="dropdown-item block px-4 py-2 text-xs rounded-lg hover:bg-slate-50 text-slate-700 font-bold hover:text-paypalBlue">📊 Data Analytics & BI</a>
+                        <a href="services.html#web" class="dropdown-item block px-4 py-2 text-xs rounded-lg hover:bg-slate-50 text-slate-700 font-bold hover:text-paypalBlue">🌐 Premium Web Design</a>
+                        <a href="services.html#social" class="dropdown-item block px-4 py-2 text-xs rounded-lg hover:bg-slate-50 text-slate-700 font-bold hover:text-paypalBlue">📈 Social Media Strategy</a>
+                        <a href="services.html#it" class="dropdown-item block px-4 py-2 text-xs rounded-lg hover:bg-slate-50 text-slate-700 font-bold hover:text-paypalBlue">🛡️ Managed IT Support</a>
+                    </div>
+                </div>
+
+                <a href="#process" class="text-slate-600 hover:text-paypalBlue transition">Our Process</a>
+                <a href="#contact" class="bg-paypalBlue text-white px-4 py-2 rounded-full hover:bg-paypalDark transition shadow-sm">Get in Touch</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-slate-600 focus:outline-none py-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <div id="mobile-menu" class="absolute top-16 left-0 right-0 bg-white border-b border-slate-200 px-6 py-4 flex flex-col space-y-4 shadow-xl hidden md:hidden z-50">
+                <a href="services.html" class="text-slate-700 font-bold hover:text-paypalBlue">Our Services ➔</a>
+                <div class="pl-4 flex flex-col space-y-2 text-xs border-l-2 border-slate-100">
+                    <a href="services.html#data" class="text-slate-500">Data Analytics</a>
+                    <a href="services.html#web" class="text-slate-500">Web Design</a>
+                    <a href="services.html#social" class="text-slate-500">Social Media</a>
+                    <a href="services.html#it" class="text-slate-500">Managed IT</a>
+                </div>
+                <a href="#process" onclick="toggleMenu()" class="text-slate-700 font-medium hover:text-paypalBlue">Our Process</a>
+                <a href="#contact" onclick="toggleMenu()" class="bg-paypalBlue text-white text-center px-4 py-3 rounded-xl font-bold">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <header class="relative bg-white overflow-hidden py-16 md:py-32">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-paypalBlue bg-blue-50 px-3 py-1 rounded-full">
+                    Scalable Operations
+                </span>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-paypalDark mt-4 leading-tight">
+                    We engineer the digital infrastructure your brand deserves.
+                </h1>
+                <p class="text-lg text-slate-600 mt-6 leading-relaxed">
+                    From automated data solutions to secure network deployments, we design and execute tailored technical systems that optimize your business growth.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="#contact" class="bg-paypalBlue text-white px-6 py-3 rounded-lg font-medium hover:bg-paypalDark transition shadow-md">
+                        Discuss Your Project
+                    </a>
+                    <a href="services.html" class="border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition">
+                        Explore Services ➔
+                    </a>
+                </div>
+            </div>
+            
+            <!-- ANIMATED CARD DECK CONTAINER -->
+            <div class="hidden md:flex justify-center relative w-full h-[400px] items-center">
+                
+                <!-- CARD 1: DATA ANALYSIS (Starts Visible) -->
+                <div class="hero-card absolute inset-0 flex items-center justify-center transition-all duration-1000 opacity-100 scale-100 pointer-events-auto">
+                    <div class="border border-slate-200 p-6 rounded-2xl bg-white shadow-xl w-full max-w-sm">
+                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+                            <span class="text-xs font-bold text-paypalBlue tracking-wider uppercase">Data Engine & Analytics</span>
+                            <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="text-xs text-slate-400 font-mono">Query: SELECT metrics FROM retail_sales;</div>
+                            <div class="h-24 bg-paypalLight rounded-lg p-3 flex items-end gap-2 justify-between">
+                                <div class="w-full bg-slate-200 rounded-t h-[40%]"></div>
+                                <div class="w-full bg-paypalBlue/40 rounded-t h-[65%]"></div>
+                                <div class="w-full bg-slate-200 rounded-t h-[50%]"></div>
+                                <div class="w-full bg-paypalBlue rounded-t h-[90%]"></div>
+                                <div class="w-full bg-paypalDark rounded-t h-[75%]"></div>
+                            </div>
+                            <div class="flex justify-between items-center pt-1">
+                                <div class="h-4 bg-slate-100 rounded w-1/3"></div>
+                                <span class="text-xs font-bold text-emerald-600 font-mono">+18.4% MoM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: WEBSITE DESIGN (Starts Hidden) -->
+                <div class="hero-card absolute inset-0 flex items-center justify-center transition-all duration-1000 opacity-0 scale-95 pointer-events-none">
+                    <div class="border border-slate-200 p-6 rounded-2xl bg-white shadow-xl w-full max-w-sm">
+                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+                            <span class="text-xs font-bold text-paypalDark tracking-wider uppercase">UI/UX Web Architecture</span>
+                            <div class="flex gap-1">
+                                <span class="w-2 h-2 rounded-full bg-slate-200"></span>
+                                <span class="w-2 h-2 rounded-full bg-slate-200"></span>
+                                <span class="w-2 h-2 rounded-full bg-slate-200"></span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="col-span-2 space-y-2">
+                                    <div class="h-4 bg-paypalDark/10 rounded w-full"></div>
+                                    <div class="h-2 bg-slate-100 rounded w-5/6"></div>
+                                    <div class="h-2 bg-slate-100 rounded w-2/3"></div>
+                                </div>
+                                <div class="bg-paypalLight rounded-lg h-12 flex items-center justify-center text-slate-300 text-lg">🖼️</div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 pt-2">
+                                <div class="h-10 border border-dashed border-slate-200 rounded-lg flex items-center justify-center text-[10px] text-slate-400 font-mono">Component_A</div>
+                                <div class="h-10 bg-paypalBlue text-white rounded-lg flex items-center justify-center text-[10px] font-bold">Interactive_CTA</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3: SOCIAL MEDIA (Starts Hidden) -->
+                <div class="hero-card absolute inset-0 flex items-center justify-center transition-all duration-1000 opacity-0 scale-95 pointer-events-none">
+                    <div class="border border-slate-200 p-6 rounded-2xl bg-white shadow-xl w-full max-w-sm">
+                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+                            <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase">Brand Growth & Socials</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                    <div class="text-[10px] text-slate-400 font-medium uppercase">Total Reach</div>
+                                    <div class="text-lg font-extrabold text-paypalDark mt-1">142.8K</div>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                    <div class="text-[10px] text-slate-400 font-medium uppercase">Engagement</div>
+                                    <div class="text-lg font-extrabold text-indigo-600 mt-1">6.42%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 4: IT SUPPORT (Starts Hidden) -->
+                <div class="hero-card absolute inset-0 flex items-center justify-center transition-all duration-1000 opacity-0 scale-95 pointer-events-none">
+                    <div class="border border-slate-200 p-6 rounded-2xl bg-white shadow-xl w-full max-w-sm">
+                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+                            <span class="text-xs font-bold text-rose-600 tracking-wider uppercase">Managed IT & Support</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-slate-900 rounded-lg font-mono text-[11px] text-emerald-400 space-y-1">
+                                <p class="text-slate-500">> systemctl status network_nodes</p>
+                                <p class="text-emerald-400">● Core infrastructure operational</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- 3. PROCESS SECTION -->
+    <section id="process" class="bg-white py-20 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-paypalDark">The Execution Framework</h2>
+                <p class="text-slate-600 mt-4">How we guarantee seamless project delivery from initial contact to deployment.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-paypalLight p-6 rounded-xl border border-slate-200/60 shadow-sm">
+                    <div class="text-3xl font-black text-black mb-4 font-mono">01</div>
+                    <h4 class="text-lg font-bold text-paypalDark mb-2">Discovery</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">We analyze your project scope, operational pain points, and core objectives.</p>
+                </div>
+                <div class="bg-paypalLight p-6 rounded-xl border border-slate-200/60 shadow-sm">
+                    <div class="text-3xl font-black text-black mb-4 font-mono">02</div>
+                    <h4 class="text-lg font-bold text-paypalDark mb-2">Architecture</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">Our engineering team maps out the optimal technical stack and structural design.</p>
+                </div>
+                <div class="bg-paypalLight p-6 rounded-xl border border-slate-200/60 shadow-sm">
+                    <div class="text-3xl font-black text-black mb-4 font-mono">03</div>
+                    <h4 class="text-lg font-bold text-paypalDark mb-2">Execution</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">Specialized internal developers build your solution under rigid quality controls.</p>
+                </div>
+                <div class="bg-paypalLight p-6 rounded-xl border border-slate-200/60 shadow-sm">
+                    <div class="text-3xl font-black text-black mb-4 font-mono">04</div>
+                    <h4 class="text-lg font-bold text-paypalDark mb-2">Handoff</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">Comprehensive deployment, testing parameters, and documentation delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CONTACT SECTION -->
+    <section id="contact" class="py-20 max-w-xl mx-auto px-6">
+        <div class="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-slate-100">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-paypalDark">Initiate a Project</h2>
+                <p class="text-slate-500 text-sm mt-2">Submit your details below, and our team will follow up within 24 business hours.</p>
+            </div>
+            <form action="https://formspree.io/f/mbderdbj" method="POST" class="space-y-5">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Your Name</label>
+                    <input type="text" name="name" required class="w-full px-4 py-3 bg-paypalLight border border-slate-200 rounded-lg focus:outline-none focus:border-paypalBlue focus:bg-white text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Business Email</label>
+                    <input type="email" name="email" required class="w-full px-4 py-3 bg-paypalLight border border-slate-200 rounded-lg focus:outline-none focus:border-paypalBlue focus:bg-white text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Project Brief</label>
+                    <textarea name="message" rows="4" required placeholder="Tell us about your objectives..." class="w-full px-4 py-3 bg-paypalLight border border-slate-200 rounded-lg focus:outline-none focus:border-paypalBlue focus:bg-white text-sm"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-paypalBlue text-white font-bold py-4 rounded-lg hover:bg-paypalDark transition shadow-md">
+                    Submit Project Inquiry
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER -->
+    <footer class="bg-paypalDark text-white/60 py-12 text-center text-xs border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col items-center space-y-6">
+            
+            <div class="flex items-center space-x-6">
+                <a href="mailto:your-email@debrits.com" target="_blank" rel="noopener noreferrer" class="hover:text-paypalBlue text-white/80 transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10" title="Email Us">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.92V6.75"></path>
+                    </svg>
+                </a>
+
+                <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" class="hover:text-paypalBlue text-white/80 transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10" title="Follow on X">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                    </svg>
+                </a>
+
+                <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" class="hover:text-paypalBlue text-white/80 transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10" title="Chat on WhatsApp">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M1.5 12a10.5 10.5 0 0 1 18.233-7.258l1.096-3.29a.75.75 0 0 1 .948-.474l3.29 1.096a.75.75 0 0 1 .474.948l-1.096 3.29A10.5 10.5 0 1 1 1.5 12zm15.424-3.52c-.172-.287-.63-.459-1.319-.803-.688-.344-4.072-2.01-4.646-2.217-.573-.207-.993-.31-1.41.31-.419.621-1.614 2.01-1.977 2.424-.363.414-.725.466-1.413.12-.689-.344-2.906-1.072-5.536-3.418-2.046-1.825-3.428-4.08-3.83-4.769-.402-.69-.043-1.062.302-1.405.309-.31.688-.804.103-1.206-.385-.402-1.032-2.482-1.413-3.396-.37-.893-.75-.772-1.033-.787-.266-.015-.572-.017-.878-.017-.306 0-.804.115-1.225.574-.42.46-1.605 1.568-1.605 3.823s1.642 4.434 1.872 4.74c.23.304 3.232 4.934 7.83 6.917 1.093.47 1.947.753 2.613.964 1.097.349 2.097.3 2.887.182.88-.13 2.693-1.1 3.072-2.164.379-1.063.379-1.977.266-2.164z" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <p class="tracking-wide text-white/40">&copy; 2026 DeBrits. All rights reserved. Premium Enterprise Contracting.</p>
+        </div>
+    </footer>
+
+    <!-- NAVBAR LOGIC & LOOP SCRIPTS -->
+    <script>
+        // Hamburger Menu Controls
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger shape
+            } else {
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // 'X' close shape
+            }
+        }
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Desktop Interactive Services Dropdown & Hero Rotation Framework
+        document.addEventListener("DOMContentLoaded", function() {
+            const wrapper = document.getElementById("services-dropdown-wrapper");
+            const menu = document.getElementById("services-dropdown-menu");
+            const arrow = document.getElementById("dropdown-arrow");
+            const items = document.querySelectorAll(".dropdown-item");
+
+            function showMenu() {
+                menu.classList.remove("hidden");
+                arrow.classList.add("rotate-180");
+            }
+
+            function hideMenu() {
+                menu.classList.add("hidden");
+                arrow.classList.remove("rotate-180");
+            }
+
+            // Mouse enter/leave listeners
+            wrapper.addEventListener("mouseenter", showMenu);
+            wrapper.addEventListener("mouseleave", hideMenu);
+
+            // Hide immediately when any inner dropdown option link is clicked
+            items.forEach(item => {
+                item.addEventListener("click", hideMenu);
+            });
+
+            // Global document click fallback to close if clicked outside
+            document.addEventListener("click", (e) => {
+                if (!wrapper.contains(e.target)) {
+                    hideMenu();
+                }
+            });
+
+            // --- HERO CARD DECK AUTOMATION INTERFACE ---
+            const cards = document.querySelectorAll('.hero-card');
+            let currentCardIndex = 0;
+
+            function rotateHeroCards() {
+                // 1. Target the card leaving visibility
+                const leaveCard = cards[currentCardIndex];
+                leaveCard.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+                leaveCard.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+
+                // 2. Increment cyclical loop reference index
+                currentCardIndex = (currentCardIndex + 1) % cards.length;
+
+                // 3. Target the card entering visibility
+                const enterCard = cards[currentCardIndex];
+                enterCard.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                enterCard.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+            }
+
+            // Set uniform rotation runtime intervals (4000ms delay)
+            setInterval(rotateHeroCards, 4000);
+        });
+    </script>
+</body>
+</html>

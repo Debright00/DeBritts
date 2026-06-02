@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeBrits | Comprehensive Digital Capabilities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paypalDark: '#003087',
+                        paypalBlue: '#0070ba',
+                        paypalLight: '#f5f7fa',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-paypalLight text-slate-800 font-sans antialiased">
+
+    <!-- 1. NAVIGATION BAR WITH MOBILE HAMBURGER & INTERACTIVE DESKTOP DROPDOWN -->
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 backdrop-blur-md bg-white/90">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between relative">
+            <!-- Logo points back to Home -->
+            <a href="index.html" class="text-2xl font-bold tracking-tight text-paypalDark">
+                DeBrits<span class="text-paypalBlue">.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-medium text-sm items-center">
+                
+                <!-- STABLE CLICK-DRIVEN DROPDOWN CONTAINER -->
+                <div class="relative py-4 select-none" id="services-dropdown-wrapper">
+                    <button type="button" id="services-menu-btn" class="text-slate-600 hover:text-paypalBlue transition flex items-center gap-1 focus:outline-none">
+                        Services
+                        <svg id="dropdown-arrow" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Dropdown Menu Box (Internal page anchors) -->
+                    <div id="services-dropdown-menu" class="absolute top-full left-0 w-64 bg-white border border-slate-200 rounded-xl shadow-xl hidden p-2 z-50">
+                        <a href="#data" class="dropdown-item block px-4 py-2 text-xs rounded-lg hover:bg-slate-50 text-slate-700 font-bold hover:text-paypalBlue">📊 Data Analytics & BI</a>
+                        <a href="#web" class="dropdown-item block px-4 py-2 text-xs rounded-lg hover:bg-slate-50 text-slate-700 font-bold hover:text-paypalBlue">🌐 Premium Web Design</a>
+                        <a href="#social" class="dropdown-item block px-4 py-2 text-xs rounded-lg hover:bg-slate-50 text-slate-700 font-bold hover:text-paypalBlue">📈 Social Media Strategy</a>
+                        <a href="#it" class="dropdown-item block px-4 py-2 text-xs rounded-lg hover:bg-slate-50 text-slate-700 font-bold hover:text-paypalBlue">🛡️ Managed IT Support</a>
+                    </div>
+                </div>
+
+                <!-- Global anchor redirection back to home page sections -->
+                <a href="index.html#process" class="text-slate-600 hover:text-paypalBlue transition">Our Process</a>
+                <a href="index.html#contact" class="bg-paypalBlue text-white px-4 py-2 rounded-full hover:bg-paypalDark transition shadow-sm">Get in Touch</a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="menu-btn" class="md:hidden text-slate-600 focus:outline-none py-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile Dropdown Menu -->
+            <div id="mobile-menu" class="absolute top-16 left-0 right-0 bg-white border-b border-slate-200 px-6 py-4 flex flex-col space-y-4 shadow-xl hidden md:hidden z-50">
+                <span class="text-slate-400 text-xs font-bold uppercase tracking-wider">Our Services</span>
+                <div class="pl-2 flex flex-col space-y-3 text-sm border-l-2 border-slate-200">
+                    <a href="#data" onclick="toggleMenu()" class="text-slate-700 font-medium hover:text-paypalBlue">Data Analytics</a>
+                    <a href="#web" onclick="toggleMenu()" class="text-slate-700 font-medium hover:text-paypalBlue">Web Design</a>
+                    <a href="#social" onclick="toggleMenu()" class="text-slate-700 font-medium hover:text-paypalBlue">Social Media</a>
+                    <a href="#it" onclick="toggleMenu()" class="text-slate-700 font-medium hover:text-paypalBlue">Managed IT</a>
+                </div>
+                <hr class="border-slate-100">
+                <a href="index.html#process" onclick="toggleMenu()" class="text-slate-700 font-medium hover:text-paypalBlue">Our Process</a>
+                <a href="index.html#contact" onclick="toggleMenu()" class="bg-paypalBlue text-white text-center px-4 py-3 rounded-xl font-bold">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-white py-16 border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-paypalDark tracking-tight">Technical Capabilities</h1>
+            <p class="text-slate-600 mt-4 text-base md:text-lg leading-relaxed">Explore the advanced systems, design layouts, and analytical pipelines our team implements for modern corporate infrastructures.</p>
+        </div>
+    </header>
+
+    <main class="space-y-16 py-16 max-w-6xl mx-auto px-6">
+
+        <section id="data" class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 md:p-10 scroll-mt-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="space-y-5">
+                    <div class="text-3xl">📊</div>
+                    <h2 class="text-2xl font-bold text-paypalDark tracking-tight">Data Analytics & BI Dashboards</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">We build secure data processing engines that turn fragmented business logs into high-fidelity, interactive dashboards. Our solutions optimize storage operations and automate tracking parameters for continuous insights.</p>
+                    <ul class="space-y-2 text-xs font-medium text-slate-600">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-paypalBlue"></span> Automated pipeline ETL orchestration</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-paypalBlue"></span> Custom dashboard integration</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-paypalBlue"></span> Interactive spreadsheet and store ledger modeling</li>
+                    </ul>
+                </div>
+                <div class="bg-paypalLight p-4 rounded-xl border border-slate-200 font-mono text-[11px] space-y-4">
+                    <div class="bg-white rounded-lg border border-slate-200 p-3 shadow-sm overflow-x-auto">
+                        <div class="text-slate-400 mb-2 border-b border-slate-100 pb-1 text-[10px] font-bold">RETAIL_SALES_LOG.xlsx</div>
+                        <table class="w-full text-left text-slate-600">
+                            <thead>
+                                <tr class="bg-slate-50 text-paypalDark font-bold">
+                                    <th class="p-1 border border-slate-200">Timestamp</th>
+                                    <th class="p-1 border border-slate-200">Asset_ID</th>
+                                    <th class="p-1 border border-slate-200">Volume</th>
+                                    <th class="p-1 border border-slate-200">Margin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-1 border border-slate-100">02:14:55</td>
+                                    <td class="p-1 border border-slate-100 text-paypalBlue">XAU_USD</td>
+                                    <td class="p-1 border border-slate-100">4.21</td>
+                                    <td class="p-1 border border-slate-100 text-emerald-600">+$1,420</td>
+                                </tr>
+                                <tr class="bg-slate-50/50">
+                                    <td class="p-1 border border-slate-100">02:16:10</td>
+                                    <td class="p-1 border border-slate-100 text-paypalBlue">BTC_USD</td>
+                                    <td class="p-1 border border-slate-100">0.85</td>
+                                    <td class="p-1 border border-slate-100 text-emerald-600">+$890</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm flex items-end justify-between h-20 gap-2">
+                        <div class="w-full bg-paypalBlue rounded-t h-[40%]"></div>
+                        <div class="w-full bg-paypalDark rounded-t h-[85%]"></div>
+                        <div class="w-full bg-paypalBlue/30 rounded-t h-[60%]"></div>
+                        <div class="w-full bg-paypalBlue rounded-t h-[95%]"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="web" class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 md:p-10 scroll-mt-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="lg:order-2 space-y-5">
+                    <div class="text-3xl">🌐</div>
+                    <h2 class="text-2xl font-bold text-paypalDark tracking-tight">Premium Web Design & UI</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">We engineer lightning-fast digital footprints. Our frontends are completely responsive, structurally lean, and hand-coded to load instantly on any mobile viewport or inspector environment.</p>
+                    <ul class="space-y-2 text-xs font-medium text-slate-600">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-paypalBlue"></span> Custom hand-coded HTML/Tailwind wireframes</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-paypalBlue"></span> High-conversion landing page architecture</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-paypalBlue"></span> Seamless client interaction pipelines</li>
+                    </ul>
+                </div>
+                <div class="bg-paypalLight border border-slate-200 rounded-xl p-3 shadow-inner space-y-3 lg:order-1">
+                    <div class="flex items-center justify-between bg-white border border-slate-200 rounded-lg px-3 py-1.5">
+                        <div class="flex gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                        </div>
+                        <div class="bg-slate-100 rounded text-[9px] text-slate-400 px-8 py-0.5 font-mono select-none">https://debrits.com</div>
+                        <div class="w-4"></div>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-lg p-4 space-y-3 shadow-sm">
+                        <div class="h-4 bg-paypalDark/10 rounded w-2/3"></div>
+                        <div class="h-2 bg-slate-100 rounded w-full"></div>
+                        <div class="h-2 bg-slate-100 rounded w-5/6"></div>
+                        <div class="pt-2 flex justify-between items-center">
+                            <div class="h-8 bg-paypalBlue rounded-lg w-24"></div>
+                            <div class="w-8 h-8 rounded-full bg-paypalLight"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="social" class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 md:p-10 scroll-mt-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="space-y-5">
+                    <div class="text-3xl">📈</div>
+                    <h2 class="text-2xl font-bold text-paypalDark tracking-tight">Social Media Strategy & Retention</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">We structure quantitative growth patterns across consumer platforms. By monitoring active user interaction rates and search visibility parameters, we build asset frameworks that capture and convert market attention.</p>
+                    <ul class="space-y-2 text-xs font-medium text-slate-600">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-paypalBlue"></span> Search-engine optimized (SEO) descriptions and titles</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-paypalBlue"></span> Digital asset marketplace optimization</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-paypalBlue"></span> Quantitative engagement analytics reporting</li>
+                    </ul>
+                </div>
+                <div class="bg-paypalLight p-5 rounded-xl border border-slate-200 space-y-4">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm text-center">
+                            <span class="text-[9px] font-bold text-slate-400 block uppercase tracking-wider">Impressions</span>
+                            <span class="text-xl font-black text-paypalDark block mt-1">482,910</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm text-center">
+                            <span class="text-[9px] font-bold text-slate-400 block uppercase tracking-wider">Conversion</span>
+                            <span class="text-xl font-black text-indigo-600 block mt-1">4.85%</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm space-y-2">
+                        <div class="flex justify-between items-center text-[10px] font-mono text-slate-500">
+                            <span>SEO Keywords indexed</span>
+                            <span class="text-emerald-600 font-bold">100% Opt</span>
+                        </div>
+                        <div class="h-2 bg-slate-100 rounded w-full overflow-hidden"><div class="h-full bg-indigo-500 rounded w-[88%]"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="it" class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 md:p-10 scroll-mt-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="lg:order-2 space-y-5">
+                    <div class="text-3xl">🛡️</div>
+                    <h2 class="text-2xl font-bold text-paypalDark tracking-tight">Managed IT Support & Security</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">We design and monitor secure organizational systems. Utilizing real-time behavior classification systems and intrusion defense rules, we keep active systems running stably and completely clear of performance bottleneck constraints.</p>
+                    <ul class="space-y-2 text-xs font-medium text-slate-600">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-paypalBlue"></span> Network performance and alert tracking</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-paypalBlue"></span> Proactive threat signature identification</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-paypalBlue"></span> Stable system runtime management</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900 text-emerald-400 p-4 rounded-xl font-mono text-[11px] shadow-xl border border-slate-800 space-y-2 lg:order-1">
+                    <div class="flex gap-1.5 pb-2 border-b border-slate-800">
+                        <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+                        <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+                        <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+                    </div>
+                    <p class="text-slate-500">> initializing nids_core_framework...</p>
+                    <p class="text-white">STATUS: MONITORING INBOUND PACKETS</p>
+                    <p class="text-slate-400">> packet_capture: 0 errors detected</p>
+                    <div class="flex justify-between text-[10px] text-slate-500 pt-4 font-sans">
+                        <span>CPU Load: 1.2%</span>
+                        <span class="text-emerald-500 font-bold">● Sec_Layer_Active</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="bg-white py-12 border-t border-slate-200 text-center">
+        <h3 class="text-xl font-bold text-paypalDark">Have a direct technical objective?</h3>
+        <p class="text-slate-500 text-xs mt-2">Launch your production tracking sequence directly with our engineering panel.</p>
+        <div class="mt-6">
+            <a href="index.html#contact" class="bg-paypalBlue text-white font-bold text-xs px-6 py-3 rounded-lg hover:bg-paypalDark transition shadow-md inline-block">Initialize Project Intake Form ➔</a>
+        </div>
+    </section>
+
+    <footer class="bg-paypalDark text-white/60 py-12 text-center text-xs border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col items-center space-y-6">
+            
+            <div class="flex items-center space-x-6">
+                <a href="mailto:debrightyz@gmail.com" target="_blank" rel="noopener noreferrer" class="hover:text-paypalBlue text-white/80 transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10" title="Email Us">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.92V6.75"></path>
+                    </svg>
+                </a>
+
+                <a href="https://x.com/Robinhood0r" target="_blank" rel="noopener noreferrer" class="hover:text-paypalBlue text-white/80 transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10" title="Follow on X">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                    </svg>
+                </a>
+
+                <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" class="hover:text-paypalBlue text-white/80 transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10" title="Chat on WhatsApp">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M1.5 12a10.5 10.5 0 0 1 18.233-7.258l1.096-3.29a.75.75 0 0 1 .948-.474l3.29 1.096a.75.75 0 0 1 .474.948l-1.096 3.29A10.5 10.5 0 1 1 1.5 12zm15.424-3.52c-.172-.287-.63-.459-1.319-.803-.688-.344-4.072-2.01-4.646-2.217-.573-.207-.993-.31-1.41.31-.419.621-1.614 2.01-1.977 2.424-.363.414-.725.466-1.413.12-.689-.344-2.906-1.072-5.536-3.418-2.046-1.825-3.428-4.08-3.83-4.769-.402-.69-.043-1.062.302-1.405.309-.31.688-.804.103-1.206-.385-.402-1.032-2.482-1.413-3.396-.37-.893-.75-.772-1.033-.787-.266-.015-.572-.017-.878-.017-.306 0-.804.115-1.225.574-.42.46-1.605 1.568-1.605 3.823s1.642 4.434 1.872 4.74c.23.304 3.232 4.934 7.83 6.917 1.093.47 1.947.753 2.613.964 1.097.349 2.097.3 2.887.182.88-.13 2.693-1.1 3.072-2.164.379-1.063.379-1.977.266-2.164z" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <p class="tracking-wide text-white/40">&copy; 2026 DeBrits. All rights reserved. Premium Enterprise Contracting.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Controls
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); 
+            } else {
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); 
+            }
+        }
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Isolated Click-to-Toggle Desktop Menu Logic
+        document.addEventListener("DOMContentLoaded", function() {
+            const wrapper = document.getElementById("services-dropdown-wrapper");
+            const btn = document.getElementById("services-menu-btn");
+            const menu = document.getElementById("services-dropdown-menu");
+            const arrow = document.getElementById("dropdown-arrow");
+            const items = document.querySelectorAll(".dropdown-item");
+
+            function toggleDropdown(e) {
+                e.stopPropagation(); 
+                const isHidden = menu.classList.contains("hidden");
+                
+                if (isHidden) {
+                    menu.classList.remove("hidden");
+                    arrow.classList.add("rotate-180");
+                } else {
+                    menu.classList.add("hidden");
+                    arrow.classList.remove("rotate-180");
+                }
+            }
+
+            function forceCloseDropdown() {
+                menu.classList.add("hidden");
+                arrow.classList.remove("rotate-180");
+            }
+
+            // Toggle drop container
+            btn.addEventListener("click", toggleDropdown);
+
+            // Instantly dismiss drop layer when anchor link is fired
+            items.forEach(item => {
+                item.addEventListener("click", forceCloseDropdown);
+            });
+
+            // Click outside backdrop fallback close
+            document.addEventListener("click", (e) => {
+                if (!wrapper.contains(e.target)) {
+                    forceCloseDropdown();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
